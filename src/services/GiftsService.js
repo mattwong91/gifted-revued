@@ -11,8 +11,13 @@ class GiftsService {
     AppState.gifts = gifts
   }
 
-  openGift(gift) {
+  async openGift(gift) {
     gift.opened = true
+  }
+
+  async addGift(giftData) {
+    const response = await api.post('api/gifts', giftData)
+    logger.log(response.data)
   }
 }
 
